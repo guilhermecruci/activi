@@ -21,7 +21,7 @@ class AtividadeControllerTest {
     @Test
     @DisplayName("Quando a resposta é 4 deve retornar mensagem de acerto")
     void deveRetornarAcertoQuandoRespostaForQuatro() throws Exception {
-        mockMvc.perform(get("/quiz").param("resposta", "5"))
+        mockMvc.perform(get("/quiz").param("resposta", "4"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("resposta certa")));
     }
