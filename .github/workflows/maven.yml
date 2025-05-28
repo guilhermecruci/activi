@@ -1,10 +1,6 @@
 name: Build Java 17
-
-# Roda em todo push nas branches indicadas e em PRs dirigidas a elas
 on:
   push:
-    branches: [ main ]
-  pull_request:
     branches: [ main ]
 
 jobs:
