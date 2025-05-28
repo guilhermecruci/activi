@@ -29,7 +29,7 @@ class AtividadeControllerTest {
     @Test
     @DisplayName("Quando a resposta não é 4 deve retornar mensagem de erro")
     void deveRetornarErroQuandoRespostaForDiferenteDeQuatro() throws Exception {
-        mockMvc.perform(get("/quiz").param("resposta", "7"))
+        mockMvc.perform(get("/quiz").param("resposta", "3"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("Quase")));
     }
