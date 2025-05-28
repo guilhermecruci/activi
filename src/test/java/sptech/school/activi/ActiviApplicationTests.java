@@ -18,20 +18,20 @@ class AtividadeControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @Test
-    @DisplayName("Quando a resposta é 4 deve retornar mensagem de acerto")
-    void deveRetornarAcertoQuandoRespostaForQuatro() throws Exception {
-        mockMvc.perform(get("/quiz").param("resposta", "4"))
-                .andExpect(status().isOk())
-                .andExpect(content().string(containsString("resposta certa")));
-    }
-
 //    @Test
-//    @DisplayName("Quando a resposta não é 4 deve retornar mensagem de erro")
-//    void deveRetornarErroQuandoRespostaForDiferenteDeQuatro() throws Exception {
-//        mockMvc.perform(get("/quiz").param("resposta", "3"))
+//    @DisplayName("Quando a resposta é 4 deve retornar mensagem de acerto")
+//    void deveRetornarAcertoQuandoRespostaForQuatro() throws Exception {
+//        mockMvc.perform(get("/quiz").param("resposta", "4"))
 //                .andExpect(status().isOk())
-//                .andExpect(content().string(containsString("Quase")));
+//                .andExpect(content().string(containsString("resposta certa")));
 //    }
+
+    @Test
+    @DisplayName("Quando a resposta não é 4 deve retornar mensagem de erro")
+    void deveRetornarErroQuandoRespostaForDiferenteDeQuatro() throws Exception {
+        mockMvc.perform(get("/quiz").param("resposta", "7"))
+                .andExpect(status().isBadRequest())
+                .andExpect(content().string(containsString("Quase")));
+    }
 }
 
